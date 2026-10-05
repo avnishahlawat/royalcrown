@@ -21,7 +21,6 @@
     "lucide-react": "^1.52.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "royal-crown": "file:..",
     "socket.io-client": "^4.8.4",
     "tailwindcss": "^4.3.3"
   }
