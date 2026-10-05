@@ -28,10 +28,9 @@ export function SocketProvider({ children }) {
 
   useEffect(() => {
     // Initialize socket connection
-    // In dev mode with Vite proxy, connecting to origin or window.location.hostname:3001 works
-    const serverUrl = window.location.port === '3000' 
-      ? `http://${window.location.hostname}:3001`
-      : undefined;
+    // In dev mode with Vite proxy, or when VITE_SERVER_URL is provided (for Vercel/Netlify)
+    const serverUrl = import.meta.env.VITE_SERVER_URL 
+      || (window.location.port === '3000' ? `http://${window.location.hostname}:3001` : undefined);
 
     const newSocket = io(serverUrl, {
       transports: ['websocket', 'polling'],
