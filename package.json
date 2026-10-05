@@ -1,0 +1,17 @@
+{
+  "name": "royal-crown",
+  "version": "1.0.0",
+  "description": "Royal Crown - Multiplayer Raja-Vajir-Chor-Sipahi Party Game",
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"magenta,cyan\" \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "npm run build --prefix client",
+    "start": "node server/index.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
